@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class Main {
 
-    //Determine word proximity
+
     public static boolean isadjacent(String a, String b){
         int count = 0;
         int n = a.length();
