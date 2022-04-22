@@ -1,0 +1,2 @@
+# Word-Ladder-Algorithmics
+The purpose of this project was to write, in Java, programs to investigate word ladders composed of five letter words. A word ladder is a sequence of words, each member of the sequence di↵ering from its predecessor in exactly one position. For example, the following ladder, of length 6, ‘transforms’ the word flour into the word bread: flour ! floor ! flood ! blood ! brood ! broad ! bread
