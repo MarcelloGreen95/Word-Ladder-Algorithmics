@@ -6,12 +6,12 @@ import java.util.Scanner;
 public class Main {
 
 
-    public static boolean isadjacent(String a, String b){
+    public static boolean isadjacent(String x, String y){
         int count = 0;
-        int n = a.length();
+        int n = x.length();
 
         for (int i=0; i<n; i++){
-            if (a.charAt(i) != b.charAt(i)) count ++;
+            if (x.charAt(i) != y.charAt(i)) count ++;
             if (count > 1) return false;
 
         }
