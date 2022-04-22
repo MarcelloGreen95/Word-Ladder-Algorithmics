@@ -37,7 +37,7 @@ public class Graph {
 
         Vertex v = vertices[s];
         v.setVisited(true);
-        v.setPredecessor(v.getIndex());
+        v.setPredecessor(v.findIndex());
         queue.add(v);
 
         while (!queue.isEmpty()) {
@@ -49,19 +49,19 @@ public class Graph {
 
                 if (!w.isVisited()) { // if vertex isn't visited
                     w.setVisited(true);
-                    w.setPredecessor(u.getIndex());
+                    w.setPredecessor(u.findIndex());
                     queue.add(w); //add to queue
 
                     List<String> wordLadder = new ArrayList<String>(); // store path start to end
 
-                    if (w.getIndex() == e) { //target reached
+                    if (w.findIndex() == e) { //target reached
 
-                        wordLadder.add(wordList.get(w.getIndex()));
-                        int i = w.getPredecessor();
+                        wordLadder.add(wordList.get(w.findIndex()));
+                        int i = w.findPredecessor();
 
                         while (i != s) {
                             wordLadder.add(wordList.get(i));
-                            i = vertices[i].getPredecessor();
+                            i = vertices[i].findPredecessor();
 
                         }
 
@@ -81,7 +81,8 @@ public class Graph {
 
             }
         }
-        System.out.println("Ladder from " + wordList.get(s) + "to " + wordList.get(e) + " this actiom isn't possible");
+        System.out.println("Ladder from " + wordList.get(s) + "to " + wordList.get(e) + " this action isn't possible");
+        return;
     }
 
 }

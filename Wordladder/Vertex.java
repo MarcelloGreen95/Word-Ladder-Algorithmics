@@ -22,7 +22,7 @@ public class Vertex {
         return adjList;
     }
 
-    public int getIndex() {
+    public int findIndex() {
         return Index;
     }
 
@@ -34,7 +34,7 @@ public class Vertex {
         visited = b;
     }
 
-    public int getPredecessor() {
+    public int findPredecessor() {
         return predecessor;
     }
 

@@ -21,13 +21,14 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
 
-        String inputFileName = args [0];
-        String startWord = args[1];
-        String endWord = args[2];
+        String inputFileName = args [0]; // dictionary
+        String Word1 = args[1]; // first word
+        String Word2 = args[2]; // second word
+
         FileReader reader = new FileReader(inputFileName);
         Scanner scanner = new Scanner(reader);
 
-        //Function to add all words to List
+        //Read in data here
 
         List<String> wordList = new ArrayList<>();
         while (scanner.hasNext()){
@@ -37,7 +38,7 @@ public class Main {
         reader.close();
         int numVertices = wordList.size();
 
-        //Graph from input file
+        // create graph here
 
         Graph G = new Graph(numVertices);
 
@@ -51,11 +52,11 @@ public class Main {
         }
 
         System.out.println("size of dictionary: "+numVertices);
-        System.out.println("start word: "+ startWord);
-        System.out.println("end word: "+ endWord);
-        long start = System.nanoTime();
+        System.out.println("start word: "+ Word1);
+        System.out.println("end word: "+ Word2);
+        long start = System.currentTimeMillis();
 
-        G.bfs(wordList.indexOf(startWord), wordList.indexOf(endWord), wordList);
+        G.bfs(wordList.indexOf(Word1), wordList.indexOf(Word2), wordList);
         long end = System.currentTimeMillis();
         System.out.println("elapsed time: " + (end - start) + " milliseconds");
     }
