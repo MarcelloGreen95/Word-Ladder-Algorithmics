@@ -23,10 +23,10 @@ public class Graph {
     public Vertex findClosest(Set<Vertex> unvisited) {
         Vertex closest = unvisited.iterator().next();
         int smallestDistance = Integer.MAX_VALUE;
-        for (Vertex v : unvisited) {
-            if (v.findSourceDistance() < smallestDistance) {
-                closest = v;
-                smallestDistance = v.findSourceDistance();
+        for (Vertex a : unvisited) {
+            if (a.findSourceDistance() < smallestDistance) {
+                closest = a;
+                smallestDistance = a.findSourceDistance();
             }
         }
         return closest;
@@ -41,32 +41,32 @@ public class Graph {
         vertices[s].setPredecessor(-1);
         vertices[s].setSourceDistance(0);
         visited.add(vertices[s]);
-        Vertex v = vertices[s];
+        Vertex b = vertices[s];
 
-        for (AdjListNode node : v.getAdjList()) {
+        for (AdjListNode node : b.getAdjList()) {
             unvisited.add(vertices[node.getVertexIndex()]);
-            vertices[node.getVertexIndex()].setPredecessor(v.findIndex());
+            vertices[node.getVertexIndex()].setPredecessor(b.findIndex());
             vertices[node.getVertexIndex()].setSourceDistance(node.getDistance());
 
         }
 
-        while (!unvisited.isEmpty()) {
-            v = findClosest(unvisited);
+        while (unvisited.isEmpty()) {
+            b = findClosest(unvisited);
 
-            for (AdjListNode node : v.getAdjList()) {
+            for (AdjListNode node : b.getAdjList()) {
                 if (!visited.contains(vertices[node.getVertexIndex()])) {
                     unvisited.add(vertices[node.getVertexIndex()]);
 
                 }
 
-                if (vertices[node.getVertexIndex()].findSourceDistance() > (v.sourceDistance + node.getDistance())) {
-                    vertices[node.getVertexIndex()].setPredecessor(v.findIndex());
-                    vertices[node.getVertexIndex()].setSourceDistance(v.sourceDistance + node.getDistance());
+                if (vertices[node.getVertexIndex()].findSourceDistance() > (b.sourceDistance + node.getDistance())) {
+                    vertices[node.getVertexIndex()].setPredecessor(b.findIndex());
+                    vertices[node.getVertexIndex()].setSourceDistance(b.sourceDistance + node.getDistance());
 
                 }
 
-                visited.add(vertices[v.findIndex()]);
-                unvisited.remove(vertices[v.findIndex()]);
+                visited.add(vertices[b.findIndex()]);
+
 
             }
 

@@ -5,24 +5,24 @@ import java.util.Scanner;
 
 public class Main {
 
-    public static int distance(String a, String b) {
-        int Length_a = 0;
-        int Length_b = 0;
-        int n = a.length();
+    public static int distance(String x, String y) {
+        int Length_x = 0;
+        int Length_y = 0;
+        int n = x.length();
         for (int i = 0; i < n;i++){
-            Length_a += a.charAt(i);
-            Length_b += b.charAt(i);
+            Length_x += x.charAt(i);
+            Length_y += y.charAt(i);
         }
-        return Math.abs(Length_a = Length_b);
+        return Math.abs(Length_x = Length_y);
 
     }
 
-    public static boolean isAdjacent(String a, String b) {
+    public static boolean isAdjacent(String x, String y) {
         int count =0;
-        int n = a.length();
+        int n = x.length();
 
         for (int i=0; i<n; i++) {
-            if(a.charAt(i) != b.charAt(i)) count++;
+            if(x.charAt(i) != y.charAt(i)) count++;
             if (count > 1) return false;
 
         }
